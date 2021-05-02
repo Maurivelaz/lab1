@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="practico6.velazquez">
+  <ClassDiagramComponents>
+    <Class name="Clientes" package="practico6.velazquez" visibility="public" xPosition="100.0" yPosition="28.0">
+      <Fields>
+        <Field name="dni" type="long" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="apellido" type="String" visibility="private"/>
+        <Field name="ciudad" type="String" visibility="private"/>
+        <Field name="direccion" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="long" name="dni"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="String" name="ciudad"/>
+          <Argument type="String" name="direccion"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getDni" returnType="long" visibility="public"/>
+        <Method name="setDni" returnType="long" visibility="public">
+          <Argument type="long" name="dni"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="String" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getApellido" returnType="String" visibility="public"/>
+        <Method name="setApellido" returnType="String" visibility="public">
+          <Argument type="String" name="apellido"/>
+        </Method>
+        <Method name="getCiudad" returnType="String" visibility="public"/>
+        <Method name="setCiudad" returnType="String" visibility="public">
+          <Argument type="String" name="ciudad"/>
+        </Method>
+        <Method name="getDireccion" returnType="String" visibility="public"/>
+        <Method name="setDireccion" returnType="String" visibility="public">
+          <Argument type="String" name="direccion"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Directorio" package="practico6.velazquez" visibility="public" xPosition="708.0" yPosition="28.0">
+      <Fields>
+        <Field name="listD" type="HashMap&lt;Long, Clientes&gt;" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="agregarCliente" returnType="Clientes" visibility="public">
+          <Argument type="long" name="nro"/>
+          <Argument type="Clientes" name="c"/>
+        </Method>
+        <Method name="buscarClientes" returnType="long" visibility="public">
+          <Argument type="long" name="nro"/>
+        </Method>
+        <Method name="buscarTelefono" returnType="String" visibility="public">
+          <Argument type="String" name="apellidos"/>
+        </Method>
+        <Method name="BuscarClientes" returnType="String" visibility="public">
+          <Argument type="String" name="unaCiudad"/>
+        </Method>
+        <Method name="borrarCliente" returnType="long" visibility="public">
+          <Argument type="long" name="documento"/>
+        </Method>
+        <Method name="buscaClave" returnType="long" visibility="public">
+          <Argument type="long" name="dni"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="MenuDirectorio" package="practico6.velazquez" visibility="public" xPosition="766.0" yPosition="307.0">
+      <Fields>
+        <Field name="d1" type="Directorio" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="String" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Practico6Velazquez" package="practico6.velazquez" visibility="public" xPosition="197.0" yPosition="516.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="String[]" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="BuscarClientesTel" package="" visibility="public" xPosition="570.0" yPosition="471.0">
+      <Methods/>
+    </Interface>
+    <Interface name="AgregarClientes" package="" visibility="public" xPosition="766.0" yPosition="508.0">
+      <Methods/>
+    </Interface>
+    <Interface name="BorrarClientes" package="" visibility="public" xPosition="975.0" yPosition="487.0">
+      <Methods/>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="practico6.velazquez.Directorio" target="practico6.velazquez.Clientes" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="practico6.velazquez.MenuDirectorio" target="AgregarClientes" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="practico6.velazquez.MenuDirectorio" target="BorrarClientes" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="BuscarClientesTel" target="practico6.velazquez.MenuDirectorio" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="listD" source="practico6.velazquez.Directorio" target="practico6.velazquez.Clientes" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="HashMap&lt;Long, Clientes&gt;"/>
+    <HasRelation name="d1" source="practico6.velazquez.MenuDirectorio" target="practico6.velazquez.Directorio" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
